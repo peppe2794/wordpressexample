@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>RSpec results</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 80%;
+  }
+  </style>
+  <script type="text/javascript">
+    // <![CDATA[
+
+function addClass(element_id, classname) {
+  document.getElementById(element_id).className += (" " + classname);
+}
+
+function removeClass(element_id, classname) {
+  var elem = document.getElementById(element_id);
+  var classlist = elem.className.replace(classname,'');
+  elem.className = classlist;
+}
+
+function moveProgressBar(percentDone) {
+  document.getElementById("rspec-header").style.width = percentDone +"%";
+}
+
+function makeRed(element_id) {
+  removeClass(element_id, 'passed');
+  removeClass(element_id, 'not_implemented');
+  addClass(element_id,'failed');
+}
+
+function makeYellow(element_id) {
+  var elem = document.getElementById(element_id);
+  if (elem.className.indexOf("failed") == -1) {  // class doesn't includes failed
+    if (elem.className.indexOf("not_implemented") == -1) { // class doesn't include not_implemented
+      removeClass(element_id, 'passed');
+      addClass(element_id,'not_implemented');
+    }
+  }
+}
+
+function apply_filters() {
+  var passed_filter = document.getElementById('passed_checkbox').checked;
+  var failed_filter = document.getElementById('failed_checkbox').checked;
+  var pending_filter = document.getElementById('pending_checkbox').checked;
+
+  assign_display_style("example passed", passed_filter);
+  assign_display_style("example failed", failed_filter);
+  assign_display_style("example not_implemented", pending_filter);
+
+  assign_display_style_for_group("example_group passed", passed_filter);
+  assign_display_style_for_group("example_group not_implemented", pending_filter, pending_filter || passed_filter);
+  assign_display_style_for_group("example_group failed", failed_filter, failed_filter || pending_filter || passed_filter);
+}
+
+function get_display_style(display_flag) {
+  var style_mode = 'none';
+  if (display_flag == true) {
+    style_mode = 'block';
+  }
+  return style_mode;
+}
+
+function assign_display_style(classname, display_flag) {
+  var style_mode = get_display_style(display_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    elems[i].style.display = style_mode;
+  }
+}
+
+function assign_display_style_for_group(classname, display_flag, subgroup_flag) {
+  var display_style_mode = get_display_style(display_flag);
+  var subgroup_style_mode = get_display_style(subgroup_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    var style_mode = display_style_mode;
+    if ((display_flag != subgroup_flag) && (elems[i].getElementsByTagName('dt')[0].innerHTML.indexOf(", ") != -1)) {
+      elems[i].style.display = subgroup_style_mode;
+    } else {
+      elems[i].style.display = display_style_mode;
+    }
+  }
+}
+
+    // ]]>
+  </script>
+  <style type="text/css">
+#rspec-header {
+  background: #65C400; color: #fff; height: 4em;
+}
+
+.rspec-report h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  font-size: 1.8em;
+  position: absolute;
+}
+
+#label {
+  float:left;
+}
+
+#display-filters {
+  float:left;
+  padding: 28px 0 0 40%;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+}
+
+#summary {
+  float:right;
+  padding: 5px 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  text-align: right;
+}
+
+#summary p {
+  margin: 0 0 0 2px;
+}
+
+#summary #totals {
+  font-size: 1.2em;
+}
+
+.example_group {
+  margin: 0 10px 5px;
+  background: #fff;
+}
+
+dl {
+  margin: 0; padding: 0 0 5px;
+  font: normal 11px "Lucida Grande", Helvetica, sans-serif;
+}
+
+dt {
+  padding: 3px;
+  background: #65C400;
+  color: #fff;
+  font-weight: bold;
+}
+
+dd {
+  margin: 5px 0 5px 5px;
+  padding: 3px 3px 3px 18px;
+}
+
+dd .duration {
+  padding-left: 5px;
+  text-align: right;
+  right: 0px;
+  float:right;
+}
+
+dd.example.passed {
+  border-left: 5px solid #65C400;
+  border-bottom: 1px solid #65C400;
+  background: #DBFFB4; color: #3D7700;
+}
+
+dd.example.not_implemented {
+  border-left: 5px solid #FAF834;
+  border-bottom: 1px solid #FAF834;
+  background: #FCFB98; color: #131313;
+}
+
+dd.example.pending_fixed {
+  border-left: 5px solid #0000C2;
+  border-bottom: 1px solid #0000C2;
+  color: #0000C2; background: #D3FBFF;
+}
+
+dd.example.failed {
+  border-left: 5px solid #C20000;
+  border-bottom: 1px solid #C20000;
+  color: #C20000; background: #FFFBD3;
+}
+
+
+dt.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+dt.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+dt.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+#rspec-header.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+#rspec-header.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+#rspec-header.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+.backtrace {
+  color: #000;
+  font-size: 12px;
+}
+
+a {
+  color: #BE5C00;
+}
+
+/* Ruby code, style similar to vibrant ink */
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+  padding: 0.1em 0 0.2em 0;
+}
+
+.ruby .keyword { color: #FF6600; }
+.ruby .constant { color: #339999; }
+.ruby .attribute { color: white; }
+.ruby .global { color: white; }
+.ruby .module { color: white; }
+.ruby .class { color: white; }
+.ruby .string { color: #66FF00; }
+.ruby .ident { color: white; }
+.ruby .method { color: #FFCC00; }
+.ruby .number { color: white; }
+.ruby .char { color: white; }
+.ruby .comment { color: #9933CC; }
+.ruby .symbol { color: white; }
+.ruby .regex { color: #44B4CC; }
+.ruby .punct { color: white; }
+.ruby .escape { color: white; }
+.ruby .interp { color: white; }
+.ruby .expr { color: white; }
+
+.ruby .offending { background-color: gray; }
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: #000000;
+  background-color: #FFFBD3;
+}
+
+  </style>
+</head>
+<body>
+<div class="rspec-report">
+
+<div id="rspec-header">
+  <div id="label">
+    <h1>RSpec Code Examples</h1>
+  </div>
+
+  <div id="display-filters">
+    <input id="passed_checkbox"  name="passed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="1" /> <label for="passed_checkbox">Passed</label>
+    <input id="failed_checkbox"  name="failed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="2" /> <label for="failed_checkbox">Failed</label>
+    <input id="pending_checkbox" name="pending_checkbox" type="checkbox" checked="checked" onchange="apply_filters()" value="3" /> <label for="pending_checkbox">Pending</label>
+  </div>
+
+  <div id="summary">
+    <p id="totals">&#160;</p>
+    <p id="duration">&#160;</p>
+  </div>
+</div>
+
+
+<div class="results">
+<div id="div_group_1" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_1" class="passed">Service apache2</dt>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_1');</script>
+    <script type="text/javascript">makeRed('example_group_1');</script>
+    <script type="text/javascript">moveProgressBar('2.1');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be installed</span>
+      <span class="duration">0.11428s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected that `Service apache2` is installed
+  # apache-baseline-master/controls/apache_spec.rb:35:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:35:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">33</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('4.2');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be running</span>
+      <span class="duration">0.00039s</span>
+      <div class="failure" id="failure_2">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected that `Service apache2` is running
+  # apache-baseline-master/controls/apache_spec.rb:36:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:36:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">34</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_2" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_2" class="passed">No-op</dt>
+    <script type="text/javascript">makeYellow('div_group_2');</script>
+    <script type="text/javascript">makeYellow('example_group_2');</script>
+    <script type="text/javascript">moveProgressBar('6.3');</script>
+    <dd class="example not_implemented"><span class="not_implemented_spec_name">Skipped control due to only_if condition. (PENDING: Not yet implemented)</span></dd>
+  </dl>
+</div>
+<div id="div_group_3" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_3" class="passed">1</dt>
+    <script type="text/javascript">moveProgressBar('8.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to eq 1</span><span class='duration'>0.00166s</span></dd>
+  </dl>
+</div>
+<div id="div_group_4" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_4" class="passed">File /etc/apache2/</dt>
+    <script type="text/javascript">moveProgressBar('10.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be owned by &quot;root&quot;</span><span class='duration'>0.10596s</span></dd>
+    <script type="text/javascript">moveProgressBar('12.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be grouped into &quot;root&quot;</span><span class='duration'>0.01686s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by owner</span><span class='duration'>0.08496s</span></dd>
+    <script type="text/javascript">moveProgressBar('17.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be writable by owner</span><span class='duration'>0.00026s</span></dd>
+    <script type="text/javascript">moveProgressBar('19.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be executable by owner</span><span class='duration'>0.00011s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by group</span><span class='duration'>0.00009s</span></dd>
+    <script type="text/javascript">moveProgressBar('23.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00057s</span></dd>
+    <script type="text/javascript">moveProgressBar('25.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be executable by group</span><span class='duration'>0.00010s</span></dd>
+    <script type="text/javascript">makeRed('div_group_4');</script>
+    <script type="text/javascript">makeRed('example_group_4');</script>
+    <script type="text/javascript">moveProgressBar('27.6');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected not to be readable by others</span>
+      <span class="duration">0.00017s</span>
+      <div class="failure" id="failure_3">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected File /etc/apache2/ not to be readable by others
+  # apache-baseline-master/controls/apache_spec.rb:72:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:72:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">70</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('29.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00016s</span></dd>
+    <script type="text/javascript">moveProgressBar('31.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be executable by others</span><span class='duration'>0.00009s</span></dd>
+  </dl>
+</div>
+<div id="div_group_5" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_5" class="passed">File /etc/apache2/apache2.conf</dt>
+    <script type="text/javascript">moveProgressBar('34.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be owned by &quot;root&quot;</span><span class='duration'>0.00342s</span></dd>
+    <script type="text/javascript">moveProgressBar('36.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be grouped into &quot;root&quot;</span><span class='duration'>0.00269s</span></dd>
+    <script type="text/javascript">moveProgressBar('38.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by owner</span><span class='duration'>0.00011s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be writable by owner</span><span class='duration'>0.00009s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by owner</span><span class='duration'>0.00011s</span></dd>
+    <script type="text/javascript">moveProgressBar('44.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by group</span><span class='duration'>0.00009s</span></dd>
+    <script type="text/javascript">moveProgressBar('46.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00009s</span></dd>
+    <script type="text/javascript">moveProgressBar('48.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by group</span><span class='duration'>0.00039s</span></dd>
+    <script type="text/javascript">makeRed('div_group_5');</script>
+    <script type="text/javascript">makeRed('example_group_5');</script>
+    <script type="text/javascript">moveProgressBar('51.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected not to be readable by others</span>
+      <span class="duration">0.00024s</span>
+      <div class="failure" id="failure_4">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected File /etc/apache2/apache2.conf not to be readable by others
+  # apache-baseline-master/controls/apache_spec.rb:91:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:91:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">89</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('53.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00025s</span></dd>
+    <script type="text/javascript">moveProgressBar('55.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by others</span><span class='duration'>0.00010s</span></dd>
+  </dl>
+</div>
+<div id="div_group_6" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_6" class="passed">File /etc/apache2/conf-enabled/hardening.conf</dt>
+    <script type="text/javascript">makeRed('div_group_6');</script>
+    <script type="text/javascript">makeRed('example_group_6');</script>
+    <script type="text/javascript">moveProgressBar('57.4');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be owned by &quot;root&quot;</span>
+      <span class="duration">0.10110s</span>
+      <div class="failure" id="failure_5">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected `File /etc/apache2/conf-enabled/hardening.conf.owned_by?(&quot;root&quot;)` to be truthy, got false
+  # apache-baseline-master/controls/apache_spec.rb:96:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:96:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">94</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('59.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be grouped into &quot;root&quot;</span>
+      <span class="duration">0.00360s</span>
+      <div class="failure" id="failure_6">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected `File /etc/apache2/conf-enabled/hardening.conf.grouped_into?(&quot;root&quot;)` to be truthy, got false
+  # apache-baseline-master/controls/apache_spec.rb:97:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:97:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">95</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('61.7');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be readable by owner</span>
+      <span class="duration">0.06203s</span>
+      <div class="failure" id="failure_7">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected File /etc/apache2/conf-enabled/hardening.conf to be readable by owner
+  # apache-baseline-master/controls/apache_spec.rb:98:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:98:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">96</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('63.8');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be writable by owner</span>
+      <span class="duration">0.00044s</span>
+      <div class="failure" id="failure_8">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected File /etc/apache2/conf-enabled/hardening.conf to be writable by owner
+  # apache-baseline-master/controls/apache_spec.rb:99:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:99:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">97</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('65.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by owner</span><span class='duration'>0.00063s</span></dd>
+    <script type="text/javascript">moveProgressBar('68.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be readable by group</span>
+      <span class="duration">0.00016s</span>
+      <div class="failure" id="failure_9">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected File /etc/apache2/conf-enabled/hardening.conf to be readable by group
+  # apache-baseline-master/controls/apache_spec.rb:101:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:101:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">99</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('70.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00015s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by group</span><span class='duration'>0.00042s</span></dd>
+    <script type="text/javascript">moveProgressBar('74.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be readable by others</span><span class='duration'>0.00010s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00009s</span></dd>
+    <script type="text/javascript">moveProgressBar('78.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by others</span><span class='duration'>0.00009s</span></dd>
+  </dl>
+</div>
+<div id="div_group_7" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_7" class="passed">Control Source Code Error</dt>
+  </dl>
+</div>
+<div id="div_group_8" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_8" class="passed">apache-baseline-master/controls/apache_spec.rb:110</dt>
+    <script type="text/javascript">makeRed('div_group_8');</script>
+    <script type="text/javascript">makeRed('example_group_8');</script>
+    <script type="text/javascript">moveProgressBar('80.8');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
+      <span class="duration">0.00008s</span>
+      <div class="failure" id="failure_10">
+        <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
+
+  RuntimeError:
+    no implicit conversion of nil into String
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_9" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_9" class="passed">File /etc/apache2/conf-enabled/security.conf</dt>
+  </dl>
+</div>
+<div id="div_group_10" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_10" class="passed">content</dt>
+    <script type="text/javascript">makeRed('div_group_10');</script>
+    <script type="text/javascript">makeRed('example_group_10');</script>
+    <script type="text/javascript">moveProgressBar('82.9');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to match /^ServerTokens Prod/</span>
+      <span class="duration">0.08675s</span>
+      <div class="failure" id="failure_11">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+
+    expected &quot;#\n# Disable access to the entire file system except for the directories that\n# are explicitly allo...n#\n#Header set X-Frame-Options: \&quot;sameorigin\&quot;\n\n\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet\n&quot; to match /^ServerTokens Prod/
+    Diff:
+    @@ -1,73 +1,145 @@
+    -/^ServerTokens Prod/
+    +#
+    +# Disable access to the entire file system except for the directories that
+    +# are explicitly allowed later.
+    +#
+    +# This currently breaks the configurations that come with some web application
+    +# Debian packages.
+    +#
+    +#&lt;Directory /&gt;
+    +#   AllowOverride None
+    +#   Require all denied
+    +#&lt;/Directory&gt;
+    +
+    +
+    +# Changing the following options will not really affect the security of the
+    +# server, but might make attacks slightly more difficult in some cases.
+    +
+    +#
+    +# ServerTokens
+    +# This directive configures what you return as the Server HTTP response
+    +# Header. The default is &#39;Full&#39; which sends information about the OS-Type
+    +# and compiled in modules.
+    +# Set to one of:  Full | OS | Minimal | Minor | Major | Prod
+    +# where Full conveys the most information, and Prod the least.
+    +#ServerTokens Minimal
+    +ServerTokens OS
+    +#ServerTokens Full
+    +
+    +#
+    +# Optionally add a line containing the server version and virtual host
+    +# name to server-generated pages (internal error documents, FTP directory
+    +# listings, mod_status and mod_info output etc., but not CGI generated
+    +# documents or custom error documents).
+    +# Set to &quot;EMail&quot; to also include a mailto: link to the ServerAdmin.
+    +# Set to one of:  On | Off | EMail
+    +#ServerSignature Off
+    +ServerSignature On
+    +
+    +#
+    +# Allow TRACE method
+    +#
+    +# Set to &quot;extended&quot; to also reflect the request body (only for testing and
+    +# diagnostic purposes).
+    +#
+    +# Set to one of:  On | Off | extended
+    +TraceEnable Off
+    +#TraceEnable On
+    +
+    +#
+    +# Forbid access to version control directories
+    +#
+    +# If you use version control systems in your document root, you should
+    +# probably deny access to their directories. For example, for subversion:
+    +#
+    +#&lt;DirectoryMatch &quot;/\.svn&quot;&gt;
+    +#   Require all denied
+    +#&lt;/DirectoryMatch&gt;
+    +
+    +#
+    +# Setting this header will prevent MSIE from interpreting files as something
+    +# else than declared by the content type in the HTTP headers.
+    +# Requires mod_headers to be enabled.
+    +#
+    +#Header set X-Content-Type-Options: &quot;nosniff&quot;
+    +
+    +#
+    +# Setting this header will prevent other sites from embedding pages from this
+    +# site as frames. This defends against clickjacking attacks.
+    +# Requires mod_headers to be enabled.
+    +#
+    +#Header set X-Frame-Options: &quot;sameorigin&quot;
+    +
+    +
+    +# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+  # apache-baseline-master/controls/apache_spec.rb:126:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:126:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">124</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_11" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_11" class="passed">Control Source Code Error</dt>
+  </dl>
+</div>
+<div id="div_group_12" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_12" class="passed">apache-baseline-master/controls/apache_spec.rb:135</dt>
+    <script type="text/javascript">makeRed('div_group_12');</script>
+    <script type="text/javascript">makeRed('example_group_12');</script>
+    <script type="text/javascript">moveProgressBar('85.1');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
+      <span class="duration">0.00014s</span>
+      <div class="failure" id="failure_12">
+        <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
+
+  RuntimeError:
+    can&#39;t modify frozen String: &quot;ls &quot;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_13" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_13" class="passed">File /etc/apache2/conf-enabled/security.conf</dt>
+  </dl>
+</div>
+<div id="div_group_14" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_14" class="passed">content</dt>
+    <script type="text/javascript">moveProgressBar('87.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to match /^\s*?TraceEnable\s+?Off/</span><span class='duration'>0.00020s</span></dd>
+  </dl>
+</div>
+<div id="div_group_15" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_15" class="passed">File /etc/apache2/conf-enabled/hardening.conf</dt>
+  </dl>
+</div>
+<div id="div_group_16" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_16" class="passed">content</dt>
+    <script type="text/javascript">makeRed('div_group_16');</script>
+    <script type="text/javascript">makeRed('example_group_16');</script>
+    <script type="text/javascript">moveProgressBar('89.3');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to match /^\s*?&lt;LimitExcept\s+?GET\s+?POST&gt;/</span>
+      <span class="duration">0.09437s</span>
+      <div class="failure" id="failure_13">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected nil to match /^\s*?&lt;LimitExcept\s+?GET\s+?POST&gt;/
+  # apache-baseline-master/controls/apache_spec.rb:186:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:186:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">184</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_17" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_17" class="passed">File /etc/apache2/mods-enabled/alias.conf</dt>
+  </dl>
+</div>
+<div id="div_group_18" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_18" class="passed">content</dt>
+    <script type="text/javascript">makeRed('div_group_18');</script>
+    <script type="text/javascript">makeRed('example_group_18');</script>
+    <script type="text/javascript">moveProgressBar('91.4');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to match /-FollowSymLinks/ or match /\+SymLinksIfOwnerMatch/</span>
+      <span class="duration">0.09538s</span>
+      <div class="failure" id="failure_14">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+
+       expected &quot;&lt;IfModule alias_module&gt;\n\t# Aliases: Add here as many aliases as you need (with no limit). The form...equire all granted\n\t&lt;/Directory&gt;\n\n&lt;/IfModule&gt;\n\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet\n&quot; to match /-FollowSymLinks/
+
+    ...or:
+
+       expected &quot;&lt;IfModule alias_module&gt;\n\t# Aliases: Add here as many aliases as you need (with no limit). The form...equire all granted\n\t&lt;/Directory&gt;\n\n&lt;/IfModule&gt;\n\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet\n&quot; to match /\+SymLinksIfOwnerMatch/
+    Diff for (match /-FollowSymLinks/):
+    @@ -1,24 +1,47 @@
+    -/-FollowSymLinks/
+    +&lt;IfModule alias_module&gt;
+    +	# Aliases: Add here as many aliases as you need (with no limit). The format is
+    +	# Alias fakename realname
+    +	#
+    +	# Note that if you include a trailing / on fakename then the server will
+    +	# require it to be present in the URL.  So &quot;/icons&quot; isn&#39;t aliased in this
+    +	# example, only &quot;/icons/&quot;.  If the fakename is slash-terminated, then the
+    +	# realname must also be slash terminated, and if the fakename omits the
+    +	# trailing slash, the realname must also omit it.
+    +	#
+    +	# We include the /icons/ alias for FancyIndexed directory listings.  If
+    +	# you do not use FancyIndexing, you may comment this out.
+    +
+    +	Alias /icons/ &quot;/usr/share/apache2/icons/&quot;
+    +
+    +	&lt;Directory &quot;/usr/share/apache2/icons&quot;&gt;
+    +		Options FollowSymlinks
+    +		AllowOverride None
+    +		Require all granted
+    +	&lt;/Directory&gt;
+    +
+    +&lt;/IfModule&gt;
+    +
+    +# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+    Diff for (match /\+SymLinksIfOwnerMatch/):
+    @@ -1,24 +1,47 @@
+    -/\+SymLinksIfOwnerMatch/
+    +&lt;IfModule alias_module&gt;
+    +	# Aliases: Add here as many aliases as you need (with no limit). The format is
+    +	# Alias fakename realname
+    +	#
+    +	# Note that if you include a trailing / on fakename then the server will
+    +	# require it to be present in the URL.  So &quot;/icons&quot; isn&#39;t aliased in this
+    +	# example, only &quot;/icons/&quot;.  If the fakename is slash-terminated, then the
+    +	# realname must also be slash terminated, and if the fakename omits the
+    +	# trailing slash, the realname must also omit it.
+    +	#
+    +	# We include the /icons/ alias for FancyIndexed directory listings.  If
+    +	# you do not use FancyIndexing, you may comment this out.
+    +
+    +	Alias /icons/ &quot;/usr/share/apache2/icons/&quot;
+    +
+    +	&lt;Directory &quot;/usr/share/apache2/icons&quot;&gt;
+    +		Options FollowSymlinks
+    +		AllowOverride None
+    +		Require all granted
+    +	&lt;/Directory&gt;
+    +
+    +&lt;/IfModule&gt;
+    +
+    +# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+  # apache-baseline-master/controls/apache_spec.rb:201:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:201:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">199</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_19" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_19" class="passed">File /etc/apache2/mods-enabled/alias.conf</dt>
+  </dl>
+</div>
+<div id="div_group_20" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_20" class="passed">content</dt>
+    <script type="text/javascript">makeRed('div_group_20');</script>
+    <script type="text/javascript">makeRed('example_group_20');</script>
+    <script type="text/javascript">moveProgressBar('93.6');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to match /-Indexes/</span>
+      <span class="duration">0.00101s</span>
+      <div class="failure" id="failure_15">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+
+    expected &quot;&lt;IfModule alias_module&gt;\n\t# Aliases: Add here as many aliases as you need (with no limit). The form...equire all granted\n\t&lt;/Directory&gt;\n\n&lt;/IfModule&gt;\n\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet\n&quot; to match /-Indexes/
+    Diff:
+    @@ -1,24 +1,47 @@
+    -/-Indexes/
+    +&lt;IfModule alias_module&gt;
+    +	# Aliases: Add here as many aliases as you need (with no limit). The format is
+    +	# Alias fakename realname
+    +	#
+    +	# Note that if you include a trailing / on fakename then the server will
+    +	# require it to be present in the URL.  So &quot;/icons&quot; isn&#39;t aliased in this
+    +	# example, only &quot;/icons/&quot;.  If the fakename is slash-terminated, then the
+    +	# realname must also be slash terminated, and if the fakename omits the
+    +	# trailing slash, the realname must also omit it.
+    +	#
+    +	# We include the /icons/ alias for FancyIndexed directory listings.  If
+    +	# you do not use FancyIndexing, you may comment this out.
+    +
+    +	Alias /icons/ &quot;/usr/share/apache2/icons/&quot;
+    +
+    +	&lt;Directory &quot;/usr/share/apache2/icons&quot;&gt;
+    +		Options FollowSymlinks
+    +		AllowOverride None
+    +		Require all granted
+    +	&lt;/Directory&gt;
+    +
+    +&lt;/IfModule&gt;
+    +
+    +# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+  # apache-baseline-master/controls/apache_spec.rb:211:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:211:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">209</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_21" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_21" class="passed">File /etc/apache2/mods-enabled/ssl.conf</dt>
+  </dl>
+</div>
+<div id="div_group_22" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_22" class="passed">content</dt>
+    <script type="text/javascript">makeRed('div_group_22');</script>
+    <script type="text/javascript">makeRed('example_group_22');</script>
+    <script type="text/javascript">moveProgressBar('95.7');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to match /^\s*?SSLHonorCipherOrder\s+?On/i</span>
+      <span class="duration">0.16186s</span>
+      <div class="failure" id="failure_16">
+        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
+    expected nil to match /^\s*?SSLHonorCipherOrder\s+?On/i
+  # apache-baseline-master/controls/apache_spec.rb:221:in `block (3 levels) in load_with_context&#39;</pre></div>
+        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:221:in `block (3 levels) in load_with_context&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">219</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_23" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_23" class="passed">Control Source Code Error</dt>
+  </dl>
+</div>
+<div id="div_group_24" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_24" class="passed">apache-baseline-master/controls/apache_spec.rb:215</dt>
+    <script type="text/javascript">makeRed('div_group_24');</script>
+    <script type="text/javascript">makeRed('example_group_24');</script>
+    <script type="text/javascript">moveProgressBar('97.8');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
+      <span class="duration">0.00013s</span>
+      <div class="failure" id="failure_17">
+        <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
+
+  RuntimeError:
+    can&#39;t modify frozen String: &quot;ls &quot;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<div id="div_group_25" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_25" class="passed">Control Source Code Error</dt>
+  </dl>
+</div>
+<div id="div_group_26" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_26" class="passed">apache-baseline-master/controls/apache_spec.rb:237</dt>
+    <script type="text/javascript">makeRed('div_group_26');</script>
+    <script type="text/javascript">makeRed('example_group_26');</script>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
+      <span class="duration">0.00012s</span>
+      <div class="failure" id="failure_18">
+        <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
+
+  RuntimeError:
+    can&#39;t modify frozen String: &quot;ls &quot;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61:in `block (2 levels) in initialize&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>1.11009 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "47 examples, 18 failures, 1 pending";</script>
+</div>
+</div>
+</body>
+</html>
