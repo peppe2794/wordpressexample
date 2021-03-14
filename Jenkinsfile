@@ -55,7 +55,7 @@ pipeline {
     post{
     success{
       echo 'Post success'
-      build job: 'socks_application', parameters: [string (value: "$IMAGE"+":"+"$DOCKER_TAG", description: 'Parametro', name: 'FRONT_END')]
+      build job: 'SecDevOpsFlowTemplate_WordpressExample', parameters: [string (value: "$IMAGE"+":"+"$DOCKER_TAG", description: 'Parametro', name: 'WP')]
     }
   }
 }
