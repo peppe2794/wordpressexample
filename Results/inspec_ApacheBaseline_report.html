@@ -288,7 +288,7 @@ a {
     <script type="text/javascript">moveProgressBar('2.1');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to be installed</span>
-      <span class="duration">0.11767s</span>
+      <span class="duration">0.12012s</span>
       <div class="failure" id="failure_1">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected that `Service apache2` is installed
@@ -300,7 +300,7 @@ a {
     <script type="text/javascript">moveProgressBar('4.2');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to be running</span>
-      <span class="duration">0.00040s</span>
+      <span class="duration">0.00045s</span>
       <div class="failure" id="failure_2">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected that `Service apache2` is running
@@ -324,74 +324,1000 @@ a {
   <dl style="margin-left: 0px;">
   <dt id="example_group_3" class="passed">1</dt>
     <script type="text/javascript">moveProgressBar('8.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to eq 1</span><span class='duration'>0.00112s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to eq 1</span><span class='duration'>0.00132s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_4" class="passed">File /etc/apache2/</dt>
     <script type="text/javascript">moveProgressBar('10.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be owned by &quot;root&quot;</span><span class='duration'>0.10211s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be owned by &quot;root&quot;</span><span class='duration'>0.11114s</span></dd>
     <script type="text/javascript">moveProgressBar('12.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be grouped into &quot;root&quot;</span><span class='duration'>0.01686s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be grouped into &quot;root&quot;</span><span class='duration'>0.02307s</span></dd>
     <script type="text/javascript">moveProgressBar('14.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by owner</span><span class='duration'>0.09463s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by owner</span><span class='duration'>0.12724s</span></dd>
     <script type="text/javascript">moveProgressBar('17.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be writable by owner</span><span class='duration'>0.00020s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be writable by owner</span><span class='duration'>0.00039s</span></dd>
     <script type="text/javascript">moveProgressBar('19.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be executable by owner</span><span class='duration'>0.00010s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be executable by owner</span><span class='duration'>0.00023s</span></dd>
     <script type="text/javascript">moveProgressBar('21.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by group</span><span class='duration'>0.00009s</span></dd>
-    <script type="text/javascript">moveProgressBar('23.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00012s</span></dd>
-    <script type="text/javascript">moveProgressBar('25.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be executable by group</span><span class='duration'>0.00009s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by group</span><span class='duration'>0.00019s</span></dd>
     <script type="text/javascript">makeRed('div_group_4');</script>
     <script type="text/javascript">makeRed('example_group_4');</script>
+    <script type="text/javascript">moveProgressBar('23.4');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be owned by &quot;root&quot;</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_3">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('25.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be grouped into &quot;root&quot;</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_4">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
     <script type="text/javascript">moveProgressBar('27.6');</script>
     <dd class="example failed">
-      <span class="failed_spec_name">is expected not to be readable by others</span>
-      <span class="duration">0.00017s</span>
-      <div class="failure" id="failure_3">
-        <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
-    expected File /etc/apache2/ not to be readable by others
-  # apache-baseline-master/controls/apache_spec.rb:72:in `block (3 levels) in load_with_context&#39;</pre></div>
-        <div class="backtrace"><pre>apache-baseline-master/controls/apache_spec.rb:72:in `block (3 levels) in load_with_context&#39;</pre></div>
-    <pre class="ruby"><code><span class="linenum">70</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
+      <span class="failed_spec_name">is expected to be readable by owner</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_5">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
       </div>
     </dd>
     <script type="text/javascript">moveProgressBar('29.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00018s</span></dd>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be writable by owner</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_6">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
     <script type="text/javascript">moveProgressBar('31.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be executable by others</span><span class='duration'>0.00012s</span></dd>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be executable by owner</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_7">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('34.0');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">is expected to be readable by group</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_8">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('36.1');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at apache-baseline-master/controls/apache_spec.rb:70</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_9">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('38.2');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at apache-baseline-master/controls/apache_spec.rb:71</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_10">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('40.4');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at apache-baseline-master/controls/apache_spec.rb:72</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_11">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('42.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at apache-baseline-master/controls/apache_spec.rb:73</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_12">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('44.6');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">example at apache-baseline-master/controls/apache_spec.rb:74</span>
+      <span class="duration">0.00001s</span>
+      <div class="failure" id="failure_13">
+        <div class="message"><pre>  Failure/Error: self.run_time    = (finished_at - started_at).to_f
+
+  TypeError:
+    can&#39;t convert nil into an exact number
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+  # /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+  # /usr/bin/inspec:217:in `load&#39;
+  # /usr/bin/inspec:217:in `&lt;main&gt;&#39;
+  # 
+  #   Showing full backtrace because every line was filtered out.
+  #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+  # ------------------
+  # --- Caused by: ---
+  # SignalException:
+  #   SIGTERM
+  #   /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+        <div class="backtrace"><pre>/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `-&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:615:in `calculate_run_time&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:608:in `ensure_timing_set&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:293:in `ensure in run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:294:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner_rspec.rb:82:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:165:in `run_tests&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/runner.rb:136:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/cli.rb:281:in `exec&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/base_cli.rb:35:in `start&#39;
+/opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-bin-4.26.4/bin/inspec:11:in `&lt;top (required)&gt;&#39;
+/usr/bin/inspec:217:in `load&#39;
+/usr/bin/inspec:217:in `&lt;main&gt;&#39;
+
+  Showing full backtrace because every line was filtered out.
+  See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+  RSpec::Configuration#backtrace_inclusion_patterns for more information.
+------------------
+--- Caused by: ---
+SignalException:
+  SIGTERM
+  /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:545:in `hooks_for&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">-1</span><span class="comment"># Couldn't get snippet for </span></code></pre>
+      </div>
+    </dd>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_5" class="passed">File /etc/apache2/apache2.conf</dt>
-    <script type="text/javascript">moveProgressBar('34.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be owned by &quot;root&quot;</span><span class='duration'>0.00420s</span></dd>
-    <script type="text/javascript">moveProgressBar('36.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be grouped into &quot;root&quot;</span><span class='duration'>0.00443s</span></dd>
-    <script type="text/javascript">moveProgressBar('38.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by owner</span><span class='duration'>0.00018s</span></dd>
-    <script type="text/javascript">moveProgressBar('40.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be writable by owner</span><span class='duration'>0.00081s</span></dd>
-    <script type="text/javascript">moveProgressBar('42.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by owner</span><span class='duration'>0.00011s</span></dd>
-    <script type="text/javascript">moveProgressBar('44.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by group</span><span class='duration'>0.00009s</span></dd>
     <script type="text/javascript">moveProgressBar('46.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00009s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be owned by &quot;root&quot;</span><span class='duration'>0.00375s</span></dd>
     <script type="text/javascript">moveProgressBar('48.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by group</span><span class='duration'>0.00057s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be grouped into &quot;root&quot;</span><span class='duration'>0.00492s</span></dd>
+    <script type="text/javascript">moveProgressBar('51.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by owner</span><span class='duration'>0.00024s</span></dd>
+    <script type="text/javascript">moveProgressBar('53.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be writable by owner</span><span class='duration'>0.00023s</span></dd>
+    <script type="text/javascript">moveProgressBar('55.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by owner</span><span class='duration'>0.00016s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to be readable by group</span><span class='duration'>0.00015s</span></dd>
+    <script type="text/javascript">moveProgressBar('59.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00022s</span></dd>
+    <script type="text/javascript">moveProgressBar('61.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by group</span><span class='duration'>0.00013s</span></dd>
     <script type="text/javascript">makeRed('div_group_5');</script>
     <script type="text/javascript">makeRed('example_group_5');</script>
-    <script type="text/javascript">moveProgressBar('51.0');</script>
+    <script type="text/javascript">moveProgressBar('63.8');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected not to be readable by others</span>
-      <span class="duration">0.00016s</span>
-      <div class="failure" id="failure_4">
+      <span class="duration">0.00025s</span>
+      <div class="failure" id="failure_14">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected File /etc/apache2/apache2.conf not to be readable by others
   # apache-baseline-master/controls/apache_spec.rb:91:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -399,9 +1325,9 @@ a {
     <pre class="ruby"><code><span class="linenum">89</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
       </div>
     </dd>
-    <script type="text/javascript">moveProgressBar('53.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00021s</span></dd>
-    <script type="text/javascript">moveProgressBar('55.3');</script>
+    <script type="text/javascript">moveProgressBar('65.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00028s</span></dd>
+    <script type="text/javascript">moveProgressBar('68.0');</script>
     <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by others</span><span class='duration'>0.00010s</span></dd>
   </dl>
 </div>
@@ -410,11 +1336,11 @@ a {
   <dt id="example_group_6" class="passed">File /etc/apache2/conf-enabled/hardening.conf</dt>
     <script type="text/javascript">makeRed('div_group_6');</script>
     <script type="text/javascript">makeRed('example_group_6');</script>
-    <script type="text/javascript">moveProgressBar('57.4');</script>
+    <script type="text/javascript">moveProgressBar('70.2');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to be owned by &quot;root&quot;</span>
-      <span class="duration">0.10286s</span>
-      <div class="failure" id="failure_5">
+      <span class="duration">0.11797s</span>
+      <div class="failure" id="failure_15">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected `File /etc/apache2/conf-enabled/hardening.conf.owned_by?(&quot;root&quot;)` to be truthy, got false
   # apache-baseline-master/controls/apache_spec.rb:96:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -422,11 +1348,11 @@ a {
     <pre class="ruby"><code><span class="linenum">94</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
       </div>
     </dd>
-    <script type="text/javascript">moveProgressBar('59.5');</script>
+    <script type="text/javascript">moveProgressBar('72.3');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to be grouped into &quot;root&quot;</span>
-      <span class="duration">0.00791s</span>
-      <div class="failure" id="failure_6">
+      <span class="duration">0.00432s</span>
+      <div class="failure" id="failure_16">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected `File /etc/apache2/conf-enabled/hardening.conf.grouped_into?(&quot;root&quot;)` to be truthy, got false
   # apache-baseline-master/controls/apache_spec.rb:97:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -434,11 +1360,11 @@ a {
     <pre class="ruby"><code><span class="linenum">95</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
       </div>
     </dd>
-    <script type="text/javascript">moveProgressBar('61.7');</script>
+    <script type="text/javascript">moveProgressBar('74.4');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to be readable by owner</span>
-      <span class="duration">0.09948s</span>
-      <div class="failure" id="failure_7">
+      <span class="duration">0.10472s</span>
+      <div class="failure" id="failure_17">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected File /etc/apache2/conf-enabled/hardening.conf to be readable by owner
   # apache-baseline-master/controls/apache_spec.rb:98:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -446,11 +1372,11 @@ a {
     <pre class="ruby"><code><span class="linenum">96</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
       </div>
     </dd>
-    <script type="text/javascript">moveProgressBar('63.8');</script>
+    <script type="text/javascript">moveProgressBar('76.5');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to be writable by owner</span>
-      <span class="duration">0.00034s</span>
-      <div class="failure" id="failure_8">
+      <span class="duration">0.00028s</span>
+      <div class="failure" id="failure_18">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected File /etc/apache2/conf-enabled/hardening.conf to be writable by owner
   # apache-baseline-master/controls/apache_spec.rb:99:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -458,13 +1384,13 @@ a {
     <pre class="ruby"><code><span class="linenum">97</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
       </div>
     </dd>
-    <script type="text/javascript">moveProgressBar('65.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by owner</span><span class='duration'>0.00024s</span></dd>
-    <script type="text/javascript">moveProgressBar('68.0');</script>
+    <script type="text/javascript">moveProgressBar('78.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by owner</span><span class='duration'>0.00017s</span></dd>
+    <script type="text/javascript">moveProgressBar('80.8');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to be readable by group</span>
-      <span class="duration">0.00017s</span>
-      <div class="failure" id="failure_9">
+      <span class="duration">0.00014s</span>
+      <div class="failure" id="failure_19">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected File /etc/apache2/conf-enabled/hardening.conf to be readable by group
   # apache-baseline-master/controls/apache_spec.rb:101:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -472,16 +1398,16 @@ a {
     <pre class="ruby"><code><span class="linenum">99</span><span class="comment"># Couldn't get snippet for apache-baseline-master/controls/apache_spec.rb</span></code></pre>
       </div>
     </dd>
-    <script type="text/javascript">moveProgressBar('70.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00025s</span></dd>
-    <script type="text/javascript">moveProgressBar('72.3');</script>
+    <script type="text/javascript">moveProgressBar('82.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by group</span><span class='duration'>0.00013s</span></dd>
+    <script type="text/javascript">moveProgressBar('85.1');</script>
     <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by group</span><span class='duration'>0.00010s</span></dd>
-    <script type="text/javascript">moveProgressBar('74.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be readable by others</span><span class='duration'>0.00023s</span></dd>
-    <script type="text/javascript">moveProgressBar('76.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00010s</span></dd>
-    <script type="text/javascript">moveProgressBar('78.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by others</span><span class='duration'>0.00051s</span></dd>
+    <script type="text/javascript">moveProgressBar('87.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be readable by others</span><span class='duration'>0.00010s</span></dd>
+    <script type="text/javascript">moveProgressBar('89.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be writable by others</span><span class='duration'>0.00012s</span></dd>
+    <script type="text/javascript">moveProgressBar('91.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected not to be executable by others</span><span class='duration'>0.00011s</span></dd>
   </dl>
 </div>
 <div id="div_group_7" class="example_group passed">
@@ -494,11 +1420,11 @@ a {
   <dt id="example_group_8" class="passed">apache-baseline-master/controls/apache_spec.rb:110</dt>
     <script type="text/javascript">makeRed('div_group_8');</script>
     <script type="text/javascript">makeRed('example_group_8');</script>
-    <script type="text/javascript">moveProgressBar('80.8');</script>
+    <script type="text/javascript">moveProgressBar('93.6');</script>
     <dd class="example failed">
       <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
       <span class="duration">0.00008s</span>
-      <div class="failure" id="failure_10">
+      <div class="failure" id="failure_20">
         <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
 
   RuntimeError:
@@ -600,11 +1526,11 @@ a {
   <dt id="example_group_10" class="passed">content</dt>
     <script type="text/javascript">makeRed('div_group_10');</script>
     <script type="text/javascript">makeRed('example_group_10');</script>
-    <script type="text/javascript">moveProgressBar('82.9');</script>
+    <script type="text/javascript">moveProgressBar('95.7');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to match /^ServerTokens Prod/</span>
-      <span class="duration">0.09746s</span>
-      <div class="failure" id="failure_11">
+      <span class="duration">0.09756s</span>
+      <div class="failure" id="failure_21">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
 
     expected &quot;#\n# Disable access to the entire file system except for the directories that\n# are explicitly allo...n#\n#Header set X-Frame-Options: \&quot;sameorigin\&quot;\n\n\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet\n&quot; to match /^ServerTokens Prod/
@@ -701,11 +1627,11 @@ a {
   <dt id="example_group_12" class="passed">apache-baseline-master/controls/apache_spec.rb:135</dt>
     <script type="text/javascript">makeRed('div_group_12');</script>
     <script type="text/javascript">makeRed('example_group_12');</script>
-    <script type="text/javascript">moveProgressBar('85.1');</script>
+    <script type="text/javascript">moveProgressBar('97.8');</script>
     <dd class="example failed">
       <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
-      <span class="duration">0.00017s</span>
-      <div class="failure" id="failure_12">
+      <span class="duration">0.00016s</span>
+      <div class="failure" id="failure_22">
         <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
 
   RuntimeError:
@@ -805,8 +1731,8 @@ a {
 <div id="div_group_14" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_14" class="passed">content</dt>
-    <script type="text/javascript">moveProgressBar('87.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">is expected to match /^\s*?TraceEnable\s+?Off/</span><span class='duration'>0.00026s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">is expected to match /^\s*?TraceEnable\s+?Off/</span><span class='duration'>0.00021s</span></dd>
   </dl>
 </div>
 <div id="div_group_15" class="example_group passed">
@@ -819,11 +1745,11 @@ a {
   <dt id="example_group_16" class="passed">content</dt>
     <script type="text/javascript">makeRed('div_group_16');</script>
     <script type="text/javascript">makeRed('example_group_16');</script>
-    <script type="text/javascript">moveProgressBar('89.3');</script>
+    <script type="text/javascript">moveProgressBar('102.1');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to match /^\s*?&lt;LimitExcept\s+?GET\s+?POST&gt;/</span>
-      <span class="duration">0.09246s</span>
-      <div class="failure" id="failure_13">
+      <span class="duration">0.08763s</span>
+      <div class="failure" id="failure_23">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected nil to match /^\s*?&lt;LimitExcept\s+?GET\s+?POST&gt;/
   # apache-baseline-master/controls/apache_spec.rb:186:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -843,11 +1769,11 @@ a {
   <dt id="example_group_18" class="passed">content</dt>
     <script type="text/javascript">makeRed('div_group_18');</script>
     <script type="text/javascript">makeRed('example_group_18');</script>
-    <script type="text/javascript">moveProgressBar('91.4');</script>
+    <script type="text/javascript">moveProgressBar('104.2');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to match /-FollowSymLinks/ or match /\+SymLinksIfOwnerMatch/</span>
-      <span class="duration">0.10325s</span>
-      <div class="failure" id="failure_14">
+      <span class="duration">0.08974s</span>
+      <div class="failure" id="failure_24">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
 
        expected &quot;&lt;IfModule alias_module&gt;\n\t# Aliases: Add here as many aliases as you need (with no limit). The form...equire all granted\n\t&lt;/Directory&gt;\n\n&lt;/IfModule&gt;\n\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet\n&quot; to match /-FollowSymLinks/
@@ -927,11 +1853,11 @@ a {
   <dt id="example_group_20" class="passed">content</dt>
     <script type="text/javascript">makeRed('div_group_20');</script>
     <script type="text/javascript">makeRed('example_group_20');</script>
-    <script type="text/javascript">moveProgressBar('93.6');</script>
+    <script type="text/javascript">moveProgressBar('106.3');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to match /-Indexes/</span>
-      <span class="duration">0.00067s</span>
-      <div class="failure" id="failure_15">
+      <span class="duration">0.00064s</span>
+      <div class="failure" id="failure_25">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
 
     expected &quot;&lt;IfModule alias_module&gt;\n\t# Aliases: Add here as many aliases as you need (with no limit). The form...equire all granted\n\t&lt;/Directory&gt;\n\n&lt;/IfModule&gt;\n\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet\n&quot; to match /-Indexes/
@@ -979,11 +1905,11 @@ a {
   <dt id="example_group_22" class="passed">content</dt>
     <script type="text/javascript">makeRed('div_group_22');</script>
     <script type="text/javascript">makeRed('example_group_22');</script>
-    <script type="text/javascript">moveProgressBar('95.7');</script>
+    <script type="text/javascript">moveProgressBar('108.5');</script>
     <dd class="example failed">
       <span class="failed_spec_name">is expected to match /^\s*?SSLHonorCipherOrder\s+?On/i</span>
-      <span class="duration">0.18477s</span>
-      <div class="failure" id="failure_16">
+      <span class="duration">0.18211s</span>
+      <div class="failure" id="failure_26">
         <div class="message"><pre>  Failure/Error: DEFAULT_FAILURE_NOTIFIER = lambda { |failure, _opts| raise failure }
     expected nil to match /^\s*?SSLHonorCipherOrder\s+?On/i
   # apache-baseline-master/controls/apache_spec.rb:221:in `block (3 levels) in load_with_context&#39;</pre></div>
@@ -1003,11 +1929,11 @@ a {
   <dt id="example_group_24" class="passed">apache-baseline-master/controls/apache_spec.rb:215</dt>
     <script type="text/javascript">makeRed('div_group_24');</script>
     <script type="text/javascript">makeRed('example_group_24');</script>
-    <script type="text/javascript">moveProgressBar('97.8');</script>
+    <script type="text/javascript">moveProgressBar('110.6');</script>
     <dd class="example failed">
       <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
-      <span class="duration">0.00013s</span>
-      <div class="failure" id="failure_17">
+      <span class="duration">0.00012s</span>
+      <div class="failure" id="failure_27">
         <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
 
   RuntimeError:
@@ -1109,11 +2035,11 @@ a {
   <dt id="example_group_26" class="passed">apache-baseline-master/controls/apache_spec.rb:237</dt>
     <script type="text/javascript">makeRed('div_group_26');</script>
     <script type="text/javascript">makeRed('example_group_26');</script>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <script type="text/javascript">moveProgressBar('112.7');</script>
     <dd class="example failed">
       <span class="failed_spec_name">example at /opt/inspec/embedded/lib/ruby/gems/2.7.0/gems/inspec-core-4.26.4/lib/inspec/rule.rb:61</span>
       <span class="duration">0.00009s</span>
-      <div class="failure" id="failure_18">
+      <div class="failure" id="failure_28">
         <div class="message"><pre>  Failure/Error: its(location) { fail e.message } # rubocop: disable Style/SignalException
 
   RuntimeError:
@@ -1205,8 +2131,8 @@ a {
     </dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>1.22417 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "47 examples, 18 failures, 1 pending";</script>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>1.33588 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "53 examples, 28 failures, 1 pending";</script>
 </div>
 </div>
 </body>
