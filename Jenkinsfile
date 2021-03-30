@@ -4,7 +4,7 @@ pipeline {
     registryCredential = 'dockerhub'
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
-    IMAGE="${JOB_NAME}"
+    IMAGE="wordpressexample"
   }
   //If is a nodejs application
   tools {
