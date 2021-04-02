@@ -29,8 +29,9 @@ pipeline {
     stage('Static Security Assesment'){
       steps{
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
-        sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/inspec_LinuxBaseline_report.html --chef-license=accept || true'
-        sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://${IMAGE} --reporter html:Results/inspec_ApacheBaseline_report.html --chef-license=accept || true'
+        sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_Baseline_report.html --chef-license=accept || true'
+        sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://${IMAGE} --reporter html:Results/Apache_Baseline_report.html --chef-license=accept || true'
+        sh 'inspec exec https://github.com/dev-sec/php-baseline -t docker://${IMAGE} --reporter html:Results/php_Baseline_report.html --chef-license=accept || true'
         sh 'docker stop ${IMAGE}'
         sh 'docker container rm ${IMAGE}'
        
