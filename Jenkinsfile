@@ -15,7 +15,7 @@ pipeline {
     stage('SonarQube analysis'){
       steps{
         withSonarQubeEnv(installationName: 'Sonarqube2', credentialsId: 'Sonarqube2') {
-          sh "${tool("sonar_scanner")}/bin/sonar-scanner"
+          //sh "${tool("sonar_scanner")}/bin/sonar-scanner"
         }
       }
     }
@@ -28,13 +28,14 @@ pipeline {
     }
     stage('Static Security Assesment'){
       steps{
+        /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_Baseline_report.html --chef-license=accept || true'
         sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://${IMAGE} --reporter html:Results/Apache_Baseline_report.html --chef-license=accept || true'
         sh 'inspec exec https://github.com/dev-sec/php-baseline -t docker://${IMAGE} --reporter html:Results/php_Baseline_report.html --chef-license=accept || true'
         sh 'docker stop ${IMAGE}'
         sh 'docker container rm ${IMAGE}'
-       
+        */
         withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {        
           sh 'git remote set-url origin "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${JOB_NAME}.git"'
           sh 'git add Results/*'
