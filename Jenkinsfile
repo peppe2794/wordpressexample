@@ -14,16 +14,18 @@ pipeline {
   stages {
     stage('SonarQube analysis'){
       steps{
+        /*
         withSonarQubeEnv(installationName: 'Sonarqube2', credentialsId: 'Sonarqube2') {
-          //sh "${tool("sonar_scanner")}/bin/sonar-scanner"
-        }
+          sh "${tool("sonar_scanner")}/bin/sonar-scanner"
+        }*/
       }
     }
     stage('Building image') {
       steps{
+        /*
         script {
-          //dockerImage = docker.build("$registry:$DOCKER_TAG")
-        }
+          dockerImage = docker.build("$registry:$DOCKER_TAG")
+        }*/
       }
     }
     stage('Static Security Assesment'){
