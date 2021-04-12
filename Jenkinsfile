@@ -22,13 +22,13 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build("$registry:$DOCKER_TAG")
+          //dockerImage = docker.build("$registry:$DOCKER_TAG")
         }
       }
     }
     stage('Static Security Assesment'){
       steps{
-        
+        /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_Baseline_report.html --chef-license=accept || true'
         sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://${IMAGE} --reporter html:Results/Apache_Baseline_report.html --chef-license=accept || true'
@@ -43,14 +43,14 @@ pipeline {
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:main'
           
-        }
+        }*/
      }
     }
     stage('Push Image') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+            //dockerImage.push()
           }
         }
       }
