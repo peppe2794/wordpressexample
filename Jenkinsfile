@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('SonarQube analysis'){
       steps{
-        sh 'SonarQube analysis'
+        sh 'echo SonarQube analysis'
         /*
         withSonarQubeEnv(installationName: 'Sonarqube2', credentialsId: 'Sonarqube2') {
           sh "${tool("sonar_scanner")}/bin/sonar-scanner"
@@ -23,7 +23,7 @@ pipeline {
     }
     stage('Building image') {
       steps{
-        sh 'Building image'
+        sh 'echo Building image'
         /*
         script {
           dockerImage = docker.build("$registry:$DOCKER_TAG")
@@ -33,7 +33,7 @@ pipeline {
     }
     stage('Static Security Assesment'){
       steps{
-        sh 'Static Security Assesment'
+        sh ' echo Static Security Assesment'
         /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_Baseline_report.html --chef-license=accept || true'
@@ -55,7 +55,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          sh 'Push Image'
+          sh ' echo Push Image'
           /*
           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
